@@ -54,6 +54,28 @@
     width: 100%;
   }
 
+  // Vídeo demo (multimedia, Sprint 3)
+  &__media {
+    width: 100%;
+    margin: 0;
+  }
+
+  &__video {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    border: 1px solid var(--sl-border);
+    border-radius: 8px;
+  }
+
+  &__leyenda {
+    margin-top: 0.5rem;
+    font-size: $texto-minimo;
+    color: var(--sl-text-muted);
+  }
+
   // Columna derecha: formulario
   &__panel {
     display: flex;

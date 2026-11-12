@@ -25,9 +25,7 @@
 }
 
 html {
-  -webkit-text-size-adjust: 100%;
-     -moz-text-size-adjust: 100%;
-          text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -94,10 +92,6 @@ table {
 th,
 td {
   text-align: left;
-}
-
-::-moz-selection {
-  background: var(--sl-primary-soft);
 }
 
 ::selection {
@@ -194,6 +188,24 @@ td {
   flex-direction: column;
   gap: 0.75rem;
   width: 100%;
+}
+.acceso__media {
+  width: 100%;
+  margin: 0;
+}
+.acceso__video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+  background: #000;
+  border: 1px solid var(--sl-border);
+  border-radius: 8px;
+}
+.acceso__leyenda {
+  margin-top: 0.5rem;
+  font-size: 0.5625rem;
+  color: var(--sl-text-muted);
 }
 .acceso__panel {
   display: flex;
@@ -572,9 +584,6 @@ td {
   border: 1px solid var(--sl-border);
   border-radius: 6px;
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
-}
-.campo__entrada::-moz-placeholder {
-  color: var(--sl-text-faint);
 }
 .campo__entrada::placeholder {
   color: var(--sl-text-faint);
@@ -1039,4 +1048,6 @@ td {
   .almacen {
     animation: aparecer 0.4s ease-out 0.12s both;
   }
-}/*# sourceMappingURL=main.css.map */
+}
+
+/*# sourceMappingURL=main.css.map */
