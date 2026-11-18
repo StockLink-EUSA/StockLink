@@ -46,7 +46,7 @@
                         </li>
 
                         <li>
-                            <a class="navegacion__enlace navegacion__enlace--activo" href="#">
+                            <a class="navegacion__enlace" href="#">
                                 <span class="navegacion__punto" aria-hidden="true"></span>
                                 TechParts
                             </a>
@@ -67,7 +67,7 @@
                         </li>
 
                         <li>
-                            <a class="navegacion__enlace" href="#">
+                            <a class="navegacion__enlace navegacion__enlace--activo" href="#">
                                 <span class="navegacion__punto" aria-hidden="true"></span>
                                 Rincoflor
                             </a>
@@ -156,7 +156,7 @@
 
                 <div>
                     <h1 class="aplicacion__titulo">Movimientos</h1>
-                    <p class="aplicacion__subtitulo">Empresa: TechParts S.L.</p>
+                    <p class="aplicacion__subtitulo">Empresa: Rincoflor S.L.</p>
                 </div>
 
                 <a class="boton boton--principal" href="#formulario">Nuevo movimiento</a>
@@ -351,12 +351,20 @@
                                 </td>
 
                                 <td class="tabla-datos__celda">
-                                    <span class="tabla-datos__producto">Girasoles</span>
-                                    <span class="tabla-datos__referencia">Reposición pedido #M-0023</span>
+                                    <div class="producto">
+                                        <picture class="producto__miniatura">
+                                            <source srcset="assets/img/productos/girasoles.avif" type="image/avif">
+                                            <img src="assets/img/productos/girasoles.webp" alt="Ramo de girasoles" width="40" height="40" loading="lazy" decoding="async">
+                                        </picture>
+                                        <div class="producto__texto">
+                                            <span class="tabla-datos__producto">Girasoles</span>
+                                            <span class="tabla-datos__referencia">Reposición pedido #M-0023</span>
+                                        </div>
+                                    </div>
                                 </td>
 
                                 <td class="tabla-datos__celda">
-                                    Central Sevilla
+                                    Cámara Rincoflor
                                 </td>
 
                                 <td class="tabla-datos__celda">
@@ -403,12 +411,20 @@
                                 </td>
 
                                 <td class="tabla-datos__celda">
-                                    <span class="tabla-datos__producto">Gerberas</span>
-                                    <span class="tabla-datos__referencia">Pedido cliente #CLI-0447</span>
+                                    <div class="producto">
+                                        <picture class="producto__miniatura">
+                                            <source srcset="assets/img/productos/gerberas.avif" type="image/avif">
+                                            <img src="assets/img/productos/gerberas.webp" alt="Ramo de gerberas" width="40" height="40" loading="lazy" decoding="async">
+                                        </picture>
+                                        <div class="producto__texto">
+                                            <span class="tabla-datos__producto">Gerberas</span>
+                                            <span class="tabla-datos__referencia">Pedido cliente #CLI-0447</span>
+                                        </div>
+                                    </div>
                                 </td>
 
                                 <td class="tabla-datos__celda">
-                                    Central Sevilla
+                                    Cámara Rincoflor
                                 </td>
 
                                 <td class="tabla-datos__celda">
@@ -455,12 +471,20 @@
                                 </td>
 
                                 <td class="tabla-datos__celda">
-                                    <span class="tabla-datos__producto">Rosas rojas</span>
-                                    <span class="tabla-datos__referencia">Pedido cliente #CLI-0431</span>
+                                    <div class="producto">
+                                        <picture class="producto__miniatura">
+                                            <source srcset="assets/img/productos/rosas-rojas.avif" type="image/avif">
+                                            <img src="assets/img/productos/rosas-rojas.webp" alt="Caja de rosas rojas" width="40" height="40" loading="lazy" decoding="async">
+                                        </picture>
+                                        <div class="producto__texto">
+                                            <span class="tabla-datos__producto">Rosas rojas</span>
+                                            <span class="tabla-datos__referencia">Pedido cliente #CLI-0431</span>
+                                        </div>
+                                    </div>
                                 </td>
 
                                 <td class="tabla-datos__celda">
-                                    Logística Norte
+                                    Cámara Rincoflor
                                 </td>
 
                                 <td class="tabla-datos__celda">
@@ -507,20 +531,28 @@
                                 </td>
 
                                 <td class="tabla-datos__celda">
-                                    <span class="tabla-datos__producto">Lilium</span>
-                                    <span class="tabla-datos__referencia">Traspaso entre almacenes</span>
+                                    <div class="producto">
+                                        <picture class="producto__miniatura">
+                                            <source srcset="assets/img/productos/lilium.avif" type="image/avif">
+                                            <img src="assets/img/productos/lilium.webp" alt="Ramo de lilium" width="40" height="40" loading="lazy" decoding="async">
+                                        </picture>
+                                        <div class="producto__texto">
+                                            <span class="tabla-datos__producto">Lilium</span>
+                                            <span class="tabla-datos__referencia">Pedido cliente #CLI-0436</span>
+                                        </div>
+                                    </div>
                                 </td>
 
                                 <td class="tabla-datos__celda">
-                                    Logística Norte
+                                    Cámara Rincoflor
                                 </td>
 
                                 <td class="tabla-datos__celda">
-                                    <span class="etiqueta etiqueta--advertencia">Traspaso</span>
+                                    <span class="etiqueta etiqueta--peligro">Salida</span>
                                 </td>
 
                                 <td class="tabla-datos__celda tabla-datos__celda--numerica">
-                                    30 uds.
+                                    − 30 uds.
                                 </td>
 
                                 <td class="tabla-datos__celda">
@@ -641,6 +673,9 @@
                                     <option value="4">Lilium</option>
                                     <option value="5">Claveles rojos</option>
                                     <option value="6">Calas de colores</option>
+                                    <option value="7">Nardos</option>
+                                    <option value="8">Margaritas blancas</option>
+                                    <option value="9">Rosas blancas</option>
                                 </select>
 
                             </div>
