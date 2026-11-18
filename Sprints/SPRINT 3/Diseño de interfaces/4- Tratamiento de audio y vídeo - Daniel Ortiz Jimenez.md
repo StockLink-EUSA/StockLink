@@ -1,6 +1,6 @@
 ## Tarea T-3.4 · Codificación y tratamiento de vídeo y audio
 
-Páginas donde se usan: Login (el vídeo demo ya está integrado en el panel de presentación). El vídeo de fondo en bucle y el sonido de alerta quedan preparados en `assets/media/` para su integración.
+Páginas donde se usan: Login y Registro (vídeo de fondo en bucle, integrado por Daniel Jiménez con el nombre `fondo-acceso`). El sonido de alerta queda preparado en `assets/media/` para su integración. El vídeo demo se preparó y se probó, pero se ha retirado de la web en favor del vídeo de fondo.
 
 El objetivo es preparar los recursos multimedia de StockLink, comprimidos para que pesen poco y exportados en formatos abiertos que funcionan en todos los navegadores: **MP4 y WebM** para el vídeo, **MP3 y OGG** para el audio.
 
@@ -9,7 +9,7 @@ El objetivo es preparar los recursos multimedia de StockLink, comprimidos para q
 | Recurso | Descripción | Origen | Licencia |
 | --- | --- | --- | --- |
 | `demo` (captura original) | Recorrido de la aplicación: login → panel → productos → almacenes → movimientos, 25 s | Creación propia (captura automatizada de las páginas reales con Playwright, con datos de ejemplo) | Propia |
-| `fondo-login` | Animación isométrica en bucle de 12 s: naves conectadas, cajas que suben y bajan, paquetes de datos y alerta de stock. Colores de StockLink | Creación propia (código HTML/Canvas renderizado fotograma a fotograma) | Propia |
+| `fondo-acceso` | Animación isométrica en bucle de 12 s: naves conectadas, cajas que suben y bajan, paquetes de datos y alerta de stock. Colores de StockLink | Creación propia (código HTML/Canvas renderizado fotograma a fotograma) | Propia |
 | `alerta-stock.wav` | Sonido de aviso de stock bajo: doble pitido repetido, 1,5 s | Creación propia (síntesis de audio con Python) | Propia |
 
 No se utiliza material de terceros en ningún recurso multimedia.
@@ -39,8 +39,8 @@ ffmpeg -i demo-original.webm -vf scale=1280:-2,fps=30 -c:v libvpx-vp9 -crf 35 -b
 Comandos del vídeo de fondo (24 fps, bucle de 12 s):
 
 ```bash
-ffmpeg -framerate 24 -i frames/f%04d.png -c:v libx264 -crf 30 -preset slow -pix_fmt yuv420p -an -movflags +faststart fondo-login.mp4
-ffmpeg -framerate 24 -i frames/f%04d.png -c:v libvpx-vp9 -crf 38 -b:v 0 -row-mt 1 -an fondo-login.webm
+ffmpeg -framerate 24 -i frames/f%04d.png -c:v libx264 -crf 30 -preset slow -pix_fmt yuv420p -an -movflags +faststart fondo-acceso.mp4
+ffmpeg -framerate 24 -i frames/f%04d.png -c:v libvpx-vp9 -crf 38 -b:v 0 -row-mt 1 -an fondo-acceso.webm
 ```
 
 **Vídeo demo**
@@ -57,9 +57,9 @@ ffmpeg -framerate 24 -i frames/f%04d.png -c:v libvpx-vp9 -crf 38 -b:v 0 -row-mt 
 | Archivo | Formato y códec | Resolución | Duración | Bitrate | Peso |
 | --- | --- | --- | --- | --- | ---: |
 | Fotogramas originales | PNG (288 fotogramas) | 1280×720 | 12 s | — | ~87 MB |
-| `fondo-login.mp4` | MP4 · H.264 | 1280×720 | 12 s | ~150 kbps | 220 KB |
-| `fondo-login.webm` | WebM · VP9 | 1280×720 | 12 s | ~422 kbps | 618 KB |
-| `fondo-login-poster.webp` | WebP | 1280×720 | — | — | 20 KB |
+| `fondo-acceso.mp4` | MP4 · H.264 | 1280×720 | 12 s | ~150 kbps | 220 KB |
+| `fondo-acceso.webm` | WebM · VP9 | 1280×720 | 12 s | ~422 kbps | 618 KB |
+| `fondo-acceso.webp` | WebP | 1280×720 | — | — | 20 KB |
 
 ### 4. Audio
 
@@ -75,8 +75,8 @@ ffmpeg -i alerta-stock.wav -c:a libvorbis -q:a 4 alerta-stock.ogg
 
 | Archivo | Formato | Bitrate | Duración | Peso |
 | --- | --- | --- | --- | ---: |
-| Original `alerta-stock.wav` | WAV sin comprimir | 705 kbps | 1,5 s | 128 KB |
-| `alerta-stock.mp3` | MP3 | 128 kbps | 1,5 s | 24 KB (−81 %) |
+| Original `alerta-stock.wav` | WAV sin comprimir | 705 kbps | 1,5 s | 133 KB |
+| `alerta-stock.mp3` | MP3 | 128 kbps | 1,5 s | 29 KB (−78 %) |
 | `alerta-stock.ogg` | OGG Vorbis | ~63 kbps | 1,5 s | 11 KB (−91 %) |
 
 ### 5. Uso en la web
@@ -84,9 +84,9 @@ ffmpeg -i alerta-stock.wav -c:a libvorbis -q:a 4 alerta-stock.ogg
 ```html
 <!-- Vídeo de fondo del login: decorativo, en bucle, sin sonido -->
 <video class="acceso__fondo" autoplay muted loop playsinline preload="auto" aria-hidden="true"
-  poster="assets/img/fondo-login-poster.webp" width="1280" height="720">
-  <source src="assets/media/fondo-login.webm" type="video/webm">
-  <source src="assets/media/fondo-login.mp4" type="video/mp4">
+  poster="assets/media/fondo-acceso.webp" width="1280" height="720">
+  <source src="assets/media/fondo-acceso.webm" type="video/webm">
+  <source src="assets/media/fondo-acceso.mp4" type="video/mp4">
 </video>
 
 <!-- Vídeo demo con controles -->
@@ -118,6 +118,6 @@ ffmpeg -i alerta-stock.wav -c:a libvorbis -q:a 4 alerta-stock.ogg
 
 ### Archivos nuevos o modificados
 
-- `assets/media/` *(nuevo)*: `fondo-login.mp4`, `fondo-login.webm`, `demo.mp4`, `demo.webm`, `alerta-stock.mp3`, `alerta-stock.ogg`
-- `assets/img/` *(nuevo)*: `fondo-login-poster.webp`, `video-poster.webp`
-- `login.html` *(integración del vídeo demo, a cargo de Daniel Jiménez; el vídeo de fondo y el audio están pendientes de integrar)*
+- `assets/media/` *(nuevo)*: `fondo-acceso.mp4`, `fondo-acceso.webm`, `fondo-acceso.webp` (póster), `alerta-stock.mp3`, `alerta-stock.ogg`
+- `assets/img/video-poster.webp` *(póster del vídeo demo)*
+- `login.html` y `register.html` *(integración del vídeo de fondo, a cargo de Daniel Jiménez; el audio está pendiente de integrar)*
