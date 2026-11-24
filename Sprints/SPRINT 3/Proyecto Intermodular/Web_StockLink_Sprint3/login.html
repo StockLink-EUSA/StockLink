@@ -21,6 +21,8 @@
   <!-- Controla el vídeo de fondo: carga solo en escritorio y permite pausarlo -->
   <script src="js/fondo-video.js" defer></script>
   <script src="js/tema.js" defer></script>
+  <!-- Sonido suave al pulsar "Iniciar sesión" -->
+  <script src="js/sonido-login.js" defer></script>
 </head>
 
 <body>
@@ -161,7 +163,7 @@
       </div>
 
       <!-- Formulario de login. En esta demo envía por GET directamente al dashboard (sin backend real) -->
-      <form class="acceso__formulario" action="dashboard.html" method="get" novalidate>
+      <form class="acceso__formulario" action="dashboard.html" method="get" novalidate data-sonido-login>
 
         <div class="acceso__cabecera">
           <h2 class="acceso__encabezado">Iniciar sesión</h2>
