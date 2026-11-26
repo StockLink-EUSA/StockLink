@@ -394,6 +394,10 @@ td {
   color: var(--sl-primary);
   background: var(--sl-primary-soft);
 }
+.navegacion__icono {
+  width: 16px;
+  height: 16px;
+}
 .navegacion__punto {
   width: 6px;
   height: 6px;
