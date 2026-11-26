@@ -104,6 +104,9 @@ td {
   *::after {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
   }
 }
 .u-solo-lectores {
@@ -393,6 +396,10 @@ td {
 .navegacion__enlace--activo {
   color: var(--sl-primary);
   background: var(--sl-primary-soft);
+}
+.navegacion__icono {
+  width: 16px;
+  height: 16px;
 }
 .navegacion__punto {
   width: 6px;
@@ -1001,3 +1008,82 @@ td {
   gap: 0.75rem;
   margin-top: 1.5rem;
 }
+
+/* =============================================================
+   ANIMACIONES LIGERAS
+   Se utilizan transform y opacity para reducir el impacto
+   en el rendimiento. Se respetan las preferencias del usuario.
+   ============================================================= */
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(0.5rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes llenar-barra {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Iconos SVG inline de la navegación. */
+  .navegacion__icono {
+    transition: transform 0.15s ease;
+  }
+
+  .navegacion__enlace:hover .navegacion__icono,
+  .navegacion__enlace:focus-visible .navegacion__icono {
+    transform: translateX(2px) scale(1.15);
+  }
+
+  /* Los botones se elevan ligeramente al pasar el ratón. */
+  .boton:hover:not(:disabled) {
+    transform: translateY(-2px);
+  }
+
+  .boton:active:not(:disabled) {
+    transform: translateY(1px);
+  }
+
+  /* Las barras se llenan de izquierda a derecha. */
+  .almacen__barra {
+    transform-origin: left center;
+    animation: llenar-barra 0.8s ease-out 0.2s both;
+  }
+
+  /* Las tarjetas aparecen de forma escalonada. */
+  .tarjeta-estadistica {
+    animation: aparecer 0.4s ease-out both;
+  }
+
+  .tarjeta-estadistica:nth-child(2) {
+    animation-delay: 0.06s;
+  }
+
+  .tarjeta-estadistica:nth-child(3) {
+    animation-delay: 0.12s;
+  }
+
+  .tarjeta-estadistica:nth-child(4) {
+    animation-delay: 0.18s;
+  }
+
+  /* Los paneles y almacenes aparecen suavemente. */
+  .panel,
+  .almacen {
+    animation: aparecer 0.4s ease-out 0.12s both;
+  }
+}
+
